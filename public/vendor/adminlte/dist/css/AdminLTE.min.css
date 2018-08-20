@@ -9,6 +9,9 @@
  * Core: General Layout Style
  * -------------------------
  */
+
+
+
 html,
 body {
   height: 100%;
@@ -23,6 +26,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 /* Layout */
 .wrapper {
   height: 100%;
@@ -88,6 +92,9 @@ body {
 .content-wrapper {
   min-height: 100%;
   background-color: white;
+  background-image: url(../../../../img/sicbrasBGBranco.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: 800;
 }
 .main-footer {
@@ -194,7 +201,7 @@ a:focus {
   -webkit-transition: margin-left 0.3s ease-in-out;
   -o-transition: margin-left 0.3s ease-in-out;
   transition: margin-left 0.3s ease-in-out;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   margin-left: 230px;
   border: none;
   min-height: 50px;
