@@ -2,8 +2,9 @@
  * Skin: Green
  * -----------
  */
+
 .skin-green-light .main-header .navbar {
-  background-color: transparent;
+  background-color: white;
 }
 .skin-green-light .main-header .navbar .nav > li > a {
   color: #007a64;
@@ -44,11 +45,14 @@
   }
   .skin-green-light .main-header .navbar .dropdown-menu li a:hover {
     background: #007a64;
-	color:white;
-	transition:0.4s;
+  	color:white;
+  	transition:0.4s;
   }
 }
 .skin-green-light .main-header .logo {
+  margin: 0px 0px;
+  padding-top: 10px;
+  padding-bottom: 55px;
   background-color: #007a64;
   color: white;
   border-bottom: 0 solid transparent;
@@ -65,6 +69,7 @@
 .skin-green-light .wrapper,
 .skin-green-light .main-sidebar,
 .skin-green-light .left-side {
+  top:40px;
   background-color: #007a64;
 }
 .skin-green-light .main-sidebar {

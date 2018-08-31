@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>SiCBRAS</b>',
+    'logo' => '<img src="img/sicbrasPB.png" style="width:150px;">',
 
-    'logo_mini' => 'SB',
+    'logo_mini' => '<img src="img/sicbrasPBSimbolo.png" style="width:30px;">',
 
     /*
     |--------------------------------------------------------------------------
