@@ -10,6 +10,6 @@
     <center>
     	<img src="img/sicbrasReal.png" style="width: 250px;margin-top:100px;">
     	<br>
-    	<h5>Escolha um módulo para usar</h5>
+    	
     </center>
 @stop

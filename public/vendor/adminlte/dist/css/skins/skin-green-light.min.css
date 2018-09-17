@@ -2,12 +2,11 @@
  * Skin: Green
  * -----------
  */
-
 .skin-green-light .main-header .navbar {
-  background-color: white;
+  background-color: #007a64;
 }
 .skin-green-light .main-header .navbar .nav > li > a {
-  color: #007a64;
+  color: #ffff;
 }
 .skin-green-light .main-header .navbar .nav > li > a:hover,
 .skin-green-light .main-header .navbar .nav > li > a:active,
@@ -16,20 +15,20 @@
 .skin-green-light .main-header .navbar .nav .open > a:hover,
 .skin-green-light .main-header .navbar .nav .open > a:focus,
 .skin-green-light .main-header .navbar .nav > .active > a {
-	background: #007a64;
-	color:white;
-	transition:0.4s;
+  background: #007a64;
+  color:white;
+  transition:0.4s;
 }
 .skin-green-light .main-header .navbar .sidebar-toggle {
   color: #007a64;
 }
 .skin-green-light .main-header .navbar .sidebar-toggle:hover {
-	background: #007a64;
-	color:white;
-	transition:0.4s;
+  background: #007a64;
+  color:white;
+  transition:0.4s;
 }
 .skin-green-light .main-header .navbar .sidebar-toggle {
-  color: #007a64;
+  color: #ffff;
 }
 .skin-green-light .main-header .navbar .sidebar-toggle:hover {
   background-color: #007a64;
@@ -45,8 +44,8 @@
   }
   .skin-green-light .main-header .navbar .dropdown-menu li a:hover {
     background: #007a64;
-  	color:white;
-  	transition:0.4s;
+  color:white;
+  transition:0.4s;
   }
 }
 .skin-green-light .main-header .logo {

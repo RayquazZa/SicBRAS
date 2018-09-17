@@ -120,8 +120,126 @@ return [
       ],
       [
           'text'        => 'Controle de Treinamento',
-          'url'         => 'treinamento',
-          'icon'        => 'edit',
+          'icon'        => 'book',
+          /*'url'         => 'treinamento',*/
+          'submenu'     => [
+            [
+                'text'  => 'Matriz de Treinamento',
+                'icon'  => 'bank',
+                'url'   => 'treinamento', 
+            ],
+            [
+                'text'  => 'Treinamento ',
+                'icon'  => 'calendar-plus-o',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Incluir Turma',
+                    'url'   => '#',
+                    ],
+
+                ],
+            ],
+            [
+                'text'  => 'Consultar',
+                'icon'  => 'calendar',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Turmas',
+                    'url'   => '#',
+                    ],
+                ],
+            ],
+            [
+                'text'  => 'Relatórios',
+                'icon'  => 'calendar-check-o',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Turmas por Data',
+                    'url'   => '#',
+                    ],
+                    [
+                    'text'  => 'Turmas por Cargo',
+                    'url'   => '#',
+                    ],
+                                        [
+                    'text'  => 'Turmas por Setor',
+                    'url'   => '#',
+                    ],
+                                        [
+                    'text'  => 'Turmas por Treinamento',
+                    'url'   => '#',
+                    ],
+                    [
+                    'text'  => 'Turmas por Departamento',
+                    'url'   => '#',
+                    ],
+                ],
+            ],
+            [
+                'text'  => 'Gerenciar Itens',
+                'icon'  => 'edit',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Cargo',
+                    'url'   => 'cargos',
+                    ],
+                    [
+                    'text'  => 'Departamento',
+                    'url'   => 'departamentos',
+                    ],
+                    [
+                    'text'  => 'Setor',
+                    'url'   => 'cetors',
+                    ],
+                    [
+                    'text'  => 'Funcionário',
+                    'url'   => 'funcionarios',
+                    ],
+                    [
+                    'text'  => 'Treinamento',
+                    'url'   => '#',
+                    ],
+                    /*[
+                    'text'  => 'Departamento',
+                    'url'   => 'departamentos',
+                    ], */
+                    [
+                    'text'  => 'Tipo do Treinamento',
+                    'url'   => '#',
+                    ],
+                    [
+                    'text'  => 'Espec. do Treinamento',
+                    'url'   => '#',
+                    ],
+
+                ],
+            ],
+            [
+                'text'  => 'Gerenciador de Arquivos',
+                'icon'  => 'edit',
+                'url'   => '#',
+                'submenu' =>[
+                [
+                    'text' =>'Download de Arquivos',
+                    'url'  =>'#',
+                    ],
+                [
+                    'text' =>'Upload de Arquivos',
+                    'url'  =>'#',
+                ],
+               ],
+              ],
+            [
+                'text'  => 'Ajuda',
+                'icon'  => 'exclamation-circle',
+                'url'   => '#',
+
+            ],
+          ],
       ],
       [
           'text'        => 'Controle de Qualidade',
