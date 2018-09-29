@@ -32,7 +32,7 @@ return [
 
     'logo' => '<img src="img/sicbrasPB.png" style="width:150px;">',
 
-    'logo_mini' => '<img src="img/sicbrasPBSimbolo.png" style="width:30px;">',
+    'logo_mini' => '<img src="/img/sicbrasPBSimbolo.png" style="width:30px;">',
 
     /*
     |--------------------------------------------------------------------------
@@ -201,7 +201,7 @@ return [
                     ],
                     [
                     'text'  => 'Treinamento',
-                    'url'   => '#',
+                    'url'   => 'cursos',
                     ],
                     /*[
                     'text'  => 'Departamento',
@@ -209,11 +209,11 @@ return [
                     ], */
                     [
                     'text'  => 'Tipo do Treinamento',
-                    'url'   => '#',
+                    'url'   => 'tptreinamentos',
                     ],
                     [
                     'text'  => 'Espec. do Treinamento',
-                    'url'   => '#',
+                    'url'   => 'espectreinamentos',
                     ],
 
                 ],
@@ -229,7 +229,7 @@ return [
                     ],
                 [
                     'text' =>'Upload de Arquivos',
-                    'url'  =>'#',
+                    'url'  =>'gerenciador',
                 ],
                ],
               ],

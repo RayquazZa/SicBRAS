@@ -3,20 +3,34 @@
 @section('title', 'Módulo de Treinamento')
 
 @section('content_header')
-    <center>
-    <br>
-    <h3 style="margin-top: -30px;">Gerenciador de Setores</h3>
-    </center>
+<div id="conteudo" style="margin-top: -30px;">
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-12 col-xs-6">
+          <!-- small box -->
+          <center>
+          <div class="small-box" style="background:#007a64; color: white">
+            <div class="inner">
+              <center><h2>Gerenciador de Setores</h2></center>              
+                <h4>
+                    <div align="right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="     .bd-example-modal-lg" >Incluir Setor</button>
+                    </div>
+                </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box box-success" style="position: relative; left: 0px; top: 0px;">
+</div>
 @stop
 
 
 @section('content')
-<br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target=" .bd-example-modal-lg">Incluir Setor</button>
 
             <!-- Modal -->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -68,7 +82,7 @@
                     "lengthMenu": "Visualizando _MENU_  itens por página",
                     "zeroRecords": "Item não encontrado",
                     "info": "Visualizando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No records available",
+                    "infoEmpty": "Nenhum item a ser exibido",
                     "infoFiltered": "(Filtrado from _MAX_ total records)"
                         }
                     } 
@@ -78,10 +92,7 @@
 
     </head>
 
-    <br>
-    <div class="container box box-success">
-    </div>
-    <br>
+    
     <table id="tobarril" class="table table-bordered" border="1" bgcolor="#ffffff">
         <thead>
         <tr>
@@ -97,7 +108,7 @@
             <td><center>{{ $cetor->nome_cetor }}</center></td>
             <td>
                 <center>
-                <form action="{{ route('cetors.destroy',$cetor->id) }}" method="POST">
+                <form action="{{ route('cetors.destroy',$cetor->id) }}" method="POST" onsubmit="return confirm ('Tem certeza que deseja excluir o Setor selecionado?')">
 
 
                     <!-- OPÇÃO DE VER ITEM 
@@ -111,7 +122,7 @@
                     @method('DELETE')
 
    
-                    <button type="submit" class="btn btn-danger">Remover</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </center>
             </td>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Treinamento;
 
+
 use App\Models\Treinamento\Funcionario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Validator; 
+
 
 class FuncionarioController extends Controller{
     /**
@@ -16,8 +19,9 @@ class FuncionarioController extends Controller{
     {
         $funcionarios = Funcionario::latest()->paginate(10);
 
-        return view('treinamento.funcionarios.index',compact(
-            'funcionarios', 'cargos', 'cetors', 'departamentos'))
+        $cargos = \App\Models\Treinamento\Cargo::all(); 
+        return view('treinamento.funcionarios.index', compact
+            ('funcionarios','cargos','cetors','departamentos'))
             ->with('i', (request()->input('page', 1 ) -1) * 5);
     }
 
@@ -37,13 +41,35 @@ class FuncionarioController extends Controller{
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
+    {
+    $validator = Validator::make($request->all(), [
+        'email' => 'unique:email_funcionario',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('funcionarios.index')
+                        ->withErrors($validator)
+                        ->withInput();
+    }
+
+    // continua e persiste os dados
+    Funcionario::create($request->all());
+
+    return redirect()->route('funcionarios.index')
+                    ->with('success', 'Funcionario cadastrado com sucesso!');
+    }
+
+
+    /*public function store(Request $request)
     {
         request()->validate([
             'nome_funcionario' => 'required',
             'email_funcionario' => 'required',
             'instrutor' => 'required',
             'cargos_id' => 'required',
+            'situacao' => 'required',
             
         ]);
 
@@ -52,7 +78,7 @@ class FuncionarioController extends Controller{
         return redirect()->route('funcionarios.index')
                     ->with('success', 'Funcionario cadastrado com sucesso!');
 
-    }
+    } 
 
     /**
      * Display the specified resource.

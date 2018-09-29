@@ -1,0 +1,21 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/AllanSampaio/SicBRAS",
+  "authors": [
+    "arvillanc <37722818+arvillanc@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "blueimp-file-upload": "jquery-file-upload#^9.22.0"
+  }
+}

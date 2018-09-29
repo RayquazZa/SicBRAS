@@ -3,22 +3,33 @@
 @section('title', 'Módulo de Treinamento')
 
 @section('content_header')
-    <center>
-    <br>
-    <h3 style="margin-top: -30px;">Gerenciador de Departamentos</h3>
-    </center>
+<div id="conteudo" style="margin-top: -30px;">
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-12 col-xs-6">
+          <!-- small box -->
+          <center>
+          <div class="small-box" style="background:#007a64; color: white">
+            <div class="inner">
+              <center><h2>Gerenciador de Departamentos</h2></center>              
+                <h4>
+                    <div align="right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=" .bd-example-modal-lg">Incluir Departamento</button>
+                    </div>
+                </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box box-success" style="position: relative; left: 0px; top: 0px;">
+</div>
 @stop
 
 
 @section('content')
-<br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target=" .bd-example-modal-lg">Incluir Departamento</button>
-
-            <!-- Modal -->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div class="modal-dialog modal-lg">
@@ -77,11 +88,6 @@
         </script>
 
     </head>
-
-    <br>
-    <div class="container box box-success">
-    </div>
-    <br>
     <table id="tobarril" class="table table-bordered" border="1" bgcolor="#ffffff">
         <thead>
         <tr>
@@ -97,7 +103,7 @@
             <td><center>{{ $departamento->nome_departamento }}</center></td>
             <td>
                 <center>
-                <form action="{{ route('departamentos.destroy',$departamento->id) }}" method="POST">
+                <form action="{{ route('departamentos.destroy',$departamento->id) }}" method="POST" onsubmit="return confirm ('Tem certeza que deseja excluir o Departamento selecionado?')">
 
                     <!-- OPÇÃO DE VER ITEM 
                     <a class="btn btn-info" href="{{ route('departamentos.show',$departamento->id) }}">Ver</a>
@@ -110,7 +116,7 @@
                     @method('DELETE')
 
    
-                    <button type="submit" class="btn btn-danger">Remover</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </center>
             </td>
