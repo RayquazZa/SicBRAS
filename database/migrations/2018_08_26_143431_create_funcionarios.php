@@ -16,14 +16,21 @@ class CreateFuncionarios extends Migration
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome_funcionario');
-            $table->string('email_funcionario');
+            $table->string('email_funcionario')->unique();
             $table->string('instrutor');
-            $table->integer('cargos_id')->unsigned()->nullable();
+            $table->string('situacao');
+
+            $table->integer('cargos_id')->unsigned();
             $table->foreign('cargos_id')->references('id')->on('cargos');
-            $table->integer('cetors_id')->unsigned()->nullable();
+            
+            $table->integer('cetors_id')->unsigned();
             $table->foreign('cetors_id')->references('id')->on('cetors');
-            $table->integer('departamentos_id')->unsigned()->nullable();
+            
+            $table->integer('departamentos_id')->unsigned();
             $table->foreign('departamentos_id')->references('id')->on('departamentos');
+            
+
+            
 
             $table->softDeletes();
             

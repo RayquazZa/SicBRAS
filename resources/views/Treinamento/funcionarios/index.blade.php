@@ -3,21 +3,31 @@
 @section('title', 'Módulo de Treinamento')
 
 @section('content_header')
-    <center>
-    <br>
-    <h3 style="margin-top: -30px;">Gerenciador de Funcionários</h3>
-    </center>
+<div id="conteudo" style="margin-top: -30px;">
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-12 col-xs-6">
+          <!-- small box -->
+          <center>
+          <div class="small-box" style="background:#007a64; color: white">
+            <div class="inner">
+              <center><h2>Gerenciador de Funcionários</h2></center>              
+                <h4>
+                    <div align="right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=" .bd-example-modal-lg">Incluir Funcionário</button>
+                    </div>
+                </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box box-success" style="position: relative; left: 0px; top: 0px;">
+</div>
 @stop
 
 @section('content')
-<br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-right">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target=" .bd-example-modal-lg">Incluir Funcionário</button>
-            </div>
-
             <!-- Modal -->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -56,9 +66,10 @@
                             <strong>Selecione o Cargo</strong>
                             <select name="cargos_id" class="form-control" required="ON">
                             <option value="">Clique aqui</option>
+                            
                             @foreach ($classcargo_array as $cargos_id)
                                 <option value="{{$cargos_id->id}}" > {{$cargos_id->nome_cargo}}</option>
-                            @endforeach     
+                            @endforeach 
                             </select>    
 
                         </div>
@@ -83,6 +94,19 @@
                             @endforeach               
                             </select>   
                         </div>
+                    </div>  
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                    <div class="form-group">
+                        <strong>Situação do Colaborador?</strong>
+                            <select name="situacao" class="form-control" required="ON">
+                         
+                            <option value="Ativo">Ativo</option>
+                            
+                            <select>   
+                    </div>
+                    </div>
                     </div>
 
                     <br>
@@ -123,7 +147,7 @@
                     "lengthMenu": "Visualizando _MENU_  itens por página",
                     "zeroRecords": "Item não encontrado",
                     "info": "Visualizando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No records available",
+                    "infoEmpty": "Nenhum item a ser exibido",
                     "infoFiltered": "(Filtrado from _MAX_ total records)"
                         }
                     } 
@@ -132,22 +156,18 @@
         </script>
 
     </head>
-            
-    <br>
-    <div class="container box box-success">
-    </div>
-    <br>
+
         <table id="tobarril" class="table table-bordered"> 
          
         <thead>
         <tr>
             <th><center>N°</center></th>
             <th><center>Nome</center></th>
-            <th><center>Email</center></th>
             <th><center>Instrutor</center></th>
             <th><center>Cargo</center></th>
             <th><center>Setor</center></th>
             <th><center>Departamento</center></th>
+            <th><center>Situação</center></th>
             <th width="150px"><center>Ação</center></th>
         </tr>
         </thead>
@@ -156,14 +176,14 @@
         <tr>
             <td><center>{{ $funcionario->id }}</center></td>
             <td><center>{{ $funcionario->nome_funcionario }}</center></td>
-            <th><center>{{ $funcionario->email_funcionario }}</center></th>
-            <th><center>{{ $funcionario->instrutor }}</center></th>
-            <th><center>{{ $funcionario->cargos_id }}</center></th> 
-            <th><center>{{ $funcionario->cetors_id }}</center></th>
-            <th><center>{{ $funcionario->departamentos_id }}</center></th>
+            <td><center>{{ $funcionario->instrutor }}</center></td>
+            <td><center>{{ $funcionario->cargo->nome_cargo }}</center></td> 
+            <td><center>{{ $funcionario->cetor->nome_cetor }}</center></td>
+            <td><center>{{ $funcionario->departamento->nome_departamento }}</center></td>
+            <td><center>{{ $funcionario->situacao }}</center></td>
             <td>
                 <center>
-                <form action="{{ route('funcionarios.destroy',$funcionario->id) }}" method="POST">
+                <form action="{{ route('funcionarios.destroy',$funcionario->id) }}" method="POST" onsubmit="return confirm ('Tem certeza que deseja excluir o Funcionário selecionado?')">
 
                 
  
@@ -174,7 +194,7 @@
                     @method('DELETE')
 
    
-                    <button type="submit" class="btn btn-danger">Remover</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </center>
             </td>

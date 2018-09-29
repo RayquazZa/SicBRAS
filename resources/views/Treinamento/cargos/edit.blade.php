@@ -3,22 +3,30 @@
 @section('title', 'Módulo de Treinamento')
 
 @section('content_header')
-    <h1>Gerenciador de Cargos do Sistema</h1>
+<div id="conteudo" style="margin-top: -30px;">
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-12 col-xs-6">
+          <!-- small box -->
+          <center>
+          <div class="small-box" style="background:#007a64; color: white">
+            <div class="inner">
+              <center><h2>Editor de Nome da Tabela Cargos</h2></center>              
+                <h4>
+                    <div align="right">
+                    <a class="btn btn-primary" href="{{ route('cargos.index') }}">Voltar</a>
+                    </div>
+                </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box box-success" style="position: relative; left: 0px; top: 0px;">
+</div>
 @stop
 
-
 @section('content')
-    <br>
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Editar Nome do Cargo</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('cargos.index') }}">Voltar</a>
-            </div>
-        </div>
-    </div>
+
 
 
     @if ($errors->any())
@@ -41,7 +49,8 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Digite um novo Nome para o Cargo abaixo:</strong>
+                    <br><br>
                     <input type="text" name="nome_cargo" value="{{ $cargo->nome_cargo }}" class="form-control" placeholder="Digite aqui o novo nome">
                 </div>
             </div>

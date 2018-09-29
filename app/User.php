@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function User(){
+        return $this->belongsTo(\App\Models\Treinamento\User::class, 'name', 'id');
+    }
+
+    public function files()
+    {
+        return $this->hasMany('App\File');
+    }
 }

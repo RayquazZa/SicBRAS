@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Treinamento;
 use App\Models\Treinamento\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DataTables;
 
 
 class CargoController extends Controller{
@@ -15,22 +16,25 @@ class CargoController extends Controller{
      */
     public function index()
     {
-        $cargos = Cargo::latest()->paginate(10);
-
-        return view('treinamento.cargos.index',compact('cargos'))
-            ->with('i', (request()->input('page', 1 ) -1) * 5);
+      return view('treinamento.cargos.index');  
+      $cargos = Cargo::select('id','nome_cargo');
+     return DataTables::of($cargos)->make(true);      
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    function getdata()
     {
-        return view('treinamento.cargos.create');
+     $cargos = Cargo::select('id','nome_cargo');
+     return DataTables::of($cargos)->make(true);
+
+     return Datatables::of($cargos)
+            ->addColumn('action', function ($cargo) {
+                return '<a href="#edit-'.$cargo->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            })
+            ->editColumn('id', 'ID: {{$id}}')
+            ->make(true);
+
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -43,12 +47,10 @@ class CargoController extends Controller{
         request()->validate([
             'nome_cargo' => 'required',
         ]);
-
         Cargo::create($request->all());
 
         return redirect()->route('cargos.index')
                     ->with('success', 'Cargo cadastrado com sucesso!');
-
     }
 
     /**
@@ -106,4 +108,18 @@ class CargoController extends Controller{
         return redirect()->route('cargos.index')
                         ->with('success', 'Cargo Deletado com Sucesso!');
     }
+
+    public function html()
+    {
+        return $this->builder()
+                    ->columns($this->getColumns())
+                    ->parameters([
+                        'buttons' => ['excel'],
+                    ]);
+    }
+
+
+            
 }
+
+
