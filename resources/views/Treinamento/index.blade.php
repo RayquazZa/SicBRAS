@@ -59,178 +59,34 @@
 @stop
 
 @section('content')
-    
-<head>
-    
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
-        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
-        <script type="text/javascript" class="init">
-
-            $(document).ready(function() {
-            $('#tobarril').DataTable({
-                    "language": {
-                    "lengthMenu": "Visualizando _MENU_  itens por página",
-                    "zeroRecords": "Item não encontrado",
-                    "Search": "Pesquisar",
-                    "info": "Visualizando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No records available",
-                    "infoFiltered": "(Filtrado from _MAX_ total records)"
-                        }
-                    } 
-                );
-            } );
-        </script>
-
-    </head>
-
-    <table id="tobarril" class="table table-bordered" border="1" bgcolor="#ffffff">
+    <table class="table table-bordered" id="users-table">
         <thead>
             <tr>
-                <th>Nome</th>
-                <th>Funcao</th>
-                <th>Cidade</th>
-                <th>Idade</th>
-                <th>Data de Inicio</th>
-                <th>Salario</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>.
+                <th>Created At</th>
+                <th>Updated At</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>Lucas</td>
-                <td>Tecnico de Informática</td>
-                <td>Hong Kong</td>
-                <td>$372,000</td>
-                <td>22</td>
-                <td>10/08/2018</td>
-            </tr>
-            <tr>
-                <td>Anselmo</td>
-                <td>Analista de Sistemas</td>
-                <td>Hong Kong</td>
-                <td>22</td>
-                <td>10/08/2018</td>
-                <td>R$3,800</td>
-            </tr>
-            <tr>
-                <td>Tadeu</td>
-                <td>Tecnico de Informática</td>
-                <td>Hong Kong</td>
-                <td>22</td>
-                <td>10/08/2018</td>
-                <td>R$3,800</td>
-            </tr>
-            <tr>
-                <td>Luan Bispo</td>
-                <td>Arquiteto de Sistemas</td>
-                <td>Hong Kong</td>
-                <td>22</td>
-                <td>10/08/2018</td>
-                <td>R$3,800</td>
-            </tr>
-            <tr>
-                <td>Arvilla Carvalho</td>
-                <td>Desenvolvedor de Sistemas</td>
-                <td>Hong Kong</td>
-                <td>21</td>
-                <td>30/04/2018</td>
-                <td>R$5,700</td>
-            </tr>
-            <tr>
-                <td>Celso Barreto</td>
-                <td>Professor</td>
-                <td>Canadá</td>
-                <td>48</td>
-                <td>02/03/2018</td>
-                <td>R$1,250</td>
-            </tr>
-            <tr>
-                <td>Washington O Cara</td>
-                <td>Professor</td>
-                <td>Canadá</td>
-                <td>48</td>
-                <td>02/03/2018</td>
-                <td>R$1,250</td>
-            </tr>
-            <tr>
-                <td>Cheli Mendes</td>
-                <td>Professor</td>
-                <td>Canadá</td>
-                <td>48</td>
-                <td>02/03/2018</td>
-                <td>R$1,250</td>
-            </tr>
-            <tr>
-                <td>Everanildo Souza</td>
-                <td>Professor</td>
-                <td>Canadá</td>
-                <td>48</td>
-                <td>02/03/2018</td>
-                <td>R$1,250</td>
-            </tr>
-            <tr>
-                <td>Linaldo Assunção</td>
-                <td>Coordenador</td>
-                <td>Brasil</td>
-                <td>48</td>
-                <td>02/03/2018</td>
-                <td>R$3,430</td>
-            </tr>
-             <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>R$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>R$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-                <td>R$433,060</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008/11/28</td>
-                <td>R$162,700</td>
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2012/12/02</td>
-                <td>R$3,800</td>
-            </tr>
-
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Nome</th>
-                <th>Posição</th>
-                <th>Cidade</th>
-                <th>Idade</th>
-                <th>Data de Inicio</th>
-                <th>Salario</th>
-            </tr>
-        </tfoot>
     </table>
-    </div>
 @stop
+
+@push('scripts')
+<script>
+$(function() {
+    $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{{ route('treinamento.index') }}',
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'created_at', name: 'created_at' },
+            { data: 'updated_at', name: 'updated_at' }
+        ]
+    });
+});
+</script>
+@endpush
