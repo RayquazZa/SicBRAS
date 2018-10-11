@@ -3,23 +3,30 @@
 @section('title', 'Módulo de Treinamento')
 
 @section('content_header')
-    <h1>Gerenciador de Funcionários do Sistema</h1>
+<div id="conteudo" style="margin-top: -30px;">
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-12 col-xs-6">
+          <!-- small box -->
+          <center>
+          <div class="small-box" style="background:#007a64; color: white">
+            <div class="inner">
+              <center><h2>Editor de Dados do Funcionário</h2></center>              
+                <h4>
+                    <div align="right">
+                    <a class="btn btn-primary" href="{{ route('funcionarios.index') }}">Voltar</a>
+                    </div>
+                </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box box-success" style="position: relative; left: 0px; top: 0px;">
+</div>
 @stop
 
 
 @section('content')
-    <br>
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Editar Nome do Funcionário</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('funcionarios.index') }}">Voltar</a>
-            </div>
-        </div>
-    </div>
-
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -51,14 +58,59 @@
                 </div>
                 
                 <div class="form-group">
-                    <strong>Ele é Instrutor:</strong>
-                    <input type="text" name="instrutor" value="{{ $funcionario->instrutor }}" class="form-control" placeholder="Digite aqui o novo nome">
+                        <strong>Ele é instrutor?</strong>
+                            <select name="instrutor" class="form-control" required="ON">
+                            <option>{{ $funcionario->instrutor }}</option>
+                            <option value="Sim">Sim</option>
+                            <option value="Nao">Não</option>
+                            <select>   
                 </div>
-                
+
+                <div class="form-group">
+                        <strong>Situação do Colaborador?</strong>
+                            <select name="situacao" class="form-control" required="ON">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                            <select>   
+                </div>
+
+                <div class="row">
+                        <div class="col-md-4">
+                            <strong>Selecione o Cargo</strong>
+                            <select name="cargos_id" class="form-control" required="ON">
+                            <option value="{{ $funcionario->cargo->id }}"> {{ $funcionario->cargo->nome_cargo }} </option>
+                            @foreach ($classcargo_array as $cargos_id)
+                                <option value="{{$cargos_id->id}}" > {{$cargos_id->nome_cargo}}</option>
+                            @endforeach 
+                            </select>    
+
+                        </div>
+                        
+                       <div class="col-md-4">
+                            <strong>Selecione o Setor</strong>
+                            <select name="cetors_id" class="form-control" required="ON">
+                            <option value="{{ $funcionario->cetor->id }}">{{ $funcionario->cetor->nome_cetor }} </option>
+                            @foreach ($classcetor_array as $cetors_id)
+                                <option value="{{$cetors_id->id}}" > {{$cetors_id->nome_cetor}}</option>
+                            @endforeach     
+                            </select>   
+
+                        </div> 
+                     
+                        <div class="col-md-4">
+                            <strong>Selecione o Departamento</strong>
+                            <select name="departamentos_id" class="form-control" required="ON">
+                            <option value="{{ $funcionario->departamento->id }}"> {{ $funcionario->departamento->nome_departamento }} </option>
+                            @foreach ($classdepartamento_array as $departamentos_id)
+                                 <option value="{{$departamentos_id->id}}" > {{$departamentos_id->nome_departamento}}</option>
+                            @endforeach               
+                            </select>   
+                        </div>
+                    </div>
             
 
 
-
+                    <br>
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

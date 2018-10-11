@@ -3,21 +3,34 @@
 @section('title', 'Módulo de Treinamento')
 
 @section('content_header')
-    <center>
-    <br>
-    <h3 style="margin-top: -30px;">Gerenciador de Cargos</h3>
-    </center>
+<div id="conteudo" style="margin-top: -30px;">
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-12 col-xs-6">
+          <!-- small box -->
+          <center>
+          <div class="small-box" style="background:#007a64; color: white">
+            <div class="inner">
+              <center><h2>Gerenciador de Cargos</h2></center>              
+                <h4>
+                    <div align="right">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="     .bd-example-modal-lg" >Opções</button>
+                    </div>
+                </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box box-success" style="position: relative; left: 0px; top: 0px;">
+</div>
 @stop
 
 
+
 @section('content')
-<br>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target=" .bd-example-modal-lg">Incluir Cargo</button>
-
             <!-- Modal -->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -40,7 +53,7 @@
                             <div class="col-md-4">
                                 <strong> </strong>
                                 <button type="submit" class="btn btn-sic btn-success btn-block btn-flat ">Enviar</button>
-                            </div>
+                        </div>
                         </div>
                         <br>
                     </div>
@@ -51,75 +64,65 @@
             </div>
         </div>
     </div>
-
     <head>
-    
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
-        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
-        <script type="text/javascript" class="init">
-
-            $(document).ready(function() {
-            $('#tobarril').DataTable({
-                    "language": {
-                    "lengthMenu": "Visualizando _MENU_  itens por página",
-                    "zeroRecords": "Item não encontrado",
-                    "info": "Visualizando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No records available",
-                    "infoFiltered": "(Filtrado from _MAX_ total records)"
-                        }
-                    } 
-                );
-            } );
-        </script>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>       
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>        
     </head>
-
-    <br>
-    <div class="container box box-success">
-    </div>
-    <br>
-    <table id="tobarril" class="table table-bordered" border="1" bgcolor="#ffffff">
-    
+    <table id="cargos_table" class="table table-bordered" style="width:100%">
         <thead>
         <tr>
-            <th><center>N°</center></th>
-            <th><center>Nome</center></th>
-            <th width="150px"><center>Ação</center></th>
+            <th><center>Id</center></th>
+            <th><center>Nome do Cargo</center></th>
+            <th><center>Ações</center></th>
+            
+            
+            
         </tr>
         </thead>
-        @foreach ($cargos as $cargo)
-        <tr>
-            <td><center>{{ $cargo->id }}</center></td>
-            <td><center>{{ $cargo->nome_cargo }}</center></td>
-            <td>
-                <center>
-                <form action="{{ route('cargos.destroy',$cargo->id) }}" method="POST">
-
-                    <!-- OPÇÃO DE VER ITEM 
-                    <a class="btn btn-info" href="{{ route('cargos.show',$cargo->id) }}">Ver</a>
-                    -->
-
-                    <a class="btn btn-primary" href="{{ route('cargos.edit',$cargo->id) }}">Editar</a>
-
-
-                    @csrf
-                    @method('DELETE')
-
-   
-                    <button type="submit" class="btn btn-danger">Deletar</button>
-                </form>
-            </center>
-            </td>
-        </tr>
-        @endforeach
     </table>
+    <script type="text/javascript">
+    $(document).ready(function(){
+         $('#cargos_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax":"{{ route('cargo.getdata') }}",
+            "columns":[
+                { "data":  "id" },
+                { "data":  "nome_cargo"},
+                { "data":"action","searchable":false,"orderable":false}
 
 
-    {!! $cargos->links() !!}
+            ],
+            "language":{
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página — <b>Tabela</b>: Cargo",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                }            
+         });    
+    });
 
-
+    
+    </script>
 @endsection
