@@ -243,8 +243,149 @@ return [
       ],
       [
           'text'        => 'Controle de Qualidade',
-          'url'         => 'qualidade',
+          /*'url'         => 'qualidade',*/
           'icon'        => 'check-circle',
+          'submenu'     => [
+            [
+                'text'  => 'Controle Geral',
+                'icon'  => 'bank',
+                'url'   => 'qualidade', 
+            ],
+            [
+                'text'  => 'Cadastrar',
+                'icon'  => 'book',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Cliente',
+                    'url'   => 'cliente',
+                    ],
+                    [
+                    'text' => 'Produto',
+                    'url'  => 'Produto',
+                    ],
+                    [
+                    'text' => 'Pedido',
+                    'url'  => 'Pedido',
+                    ],
+                ],
+            ],
+            [
+                'text'  => 'Consultar',
+                'icon'  => 'calendar',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Clientes',
+                    'url'   => 'cliente_consulta',
+                    ],
+                    [
+                    'text'  => 'Produtos',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Pedidos',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Estatisticas',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Graficos',
+                    'url'   => 'congrao',
+                    ],
+              
+
+                ],
+            ],
+            [
+                'text'  => 'Analise Granulometricas',
+                'icon'  => 'edit',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Nova Analise',
+                    'url'   => 'analise',
+                    ],
+                    [
+                    'text'  => 'Produtos Acabados',
+                    'url'   => 'concliente',
+                    ],
+                    [
+                    'text'  => 'Produtos semi-acabados',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Materia Prima Fornos',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Teste Diversos',
+                    'url'   => 'congrao',
+                    ],
+
+                ],
+            ],
+            [
+                'text'  => 'Resultados Químicos',
+                'icon'  => 'edit',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Novo resultado',
+                    'url'   => 'concliente',
+                    ],
+                    [
+                    'text'  => 'Materia Prima',
+                    'url'   => 'concliente',
+                    ],
+                    [
+                    'text'  => 'Cristal',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Metal',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Briquete',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Controles',
+                    'url'   => 'congrao',
+                    ],
+                    [
+                    'text'  => 'Testes',
+                    'url'   => 'congrao',
+                    ],
+
+                ],
+            ],
+            [
+                'text'  => 'Relatorios',
+                'icon'  => 'calendar-check-o',
+                'url'   => '#',
+                'submenu'   => [
+                    [
+                    'text'  => 'Formulario de qualidade',
+                    'url'   => 'reltreinamento',
+                    ],
+                    [
+                    'text'  => 'Certificado de Qualidade',
+                    'url'   => 'relturma',
+                    ],
+
+                ],
+            ],
+            [
+                'text'  => 'Ajuda',
+                'icon'  => 'exclamation-circle',
+                'url'   => 'help',
+
+            ],
+          ],
       ],
     ],
 

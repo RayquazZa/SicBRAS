@@ -5,13 +5,13 @@ namespace App\Models\Qualidade;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Cliente extends Model
+class Endereco extends Model
 {
     protected $fillable = [
-            'nome','cpf','cnpj',
+        'cep','endereco','bairro','cidade','estado','numero',
     ];
 
-    protected $table = 'clientes';
+    protected $table = 'enderecos';
 
     use SoftDeletes;
 

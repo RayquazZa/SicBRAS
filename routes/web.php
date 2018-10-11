@@ -34,7 +34,11 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Treinamento'], function(
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'Qualidade'], function(){
 
+    Route::resource('cliente_consulta', 'ConsClienteControler');
+    Route::resource('cliente', 'ClienteController');
     Route::resource('qualidade', 'QualidadeController');
+    Route::resource('analise', 'AnaliseGranulController');
+    
 });
 
 Route::resource('home', 'HomeController');
